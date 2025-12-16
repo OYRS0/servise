@@ -4,117 +4,339 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drive Med — больница для машин</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  body{margin:0;padding:0;font-family:'Roboto',sans-serif;scroll-behavior:smooth;background:#f5f8fa;color:#333;}
-  a{text-decoration:none;}
-  header{background:linear-gradient(135deg,#0077c2,#00aaff);color:white;padding:120px 20px 80px;text-align:center;position:relative;overflow:hidden;}
-  header h1{font-size:3.5em;margin:0;opacity:0;transform:translateY(-30px);animation:fadeInDown 1s forwards;}
-  header p{font-size:1.4em;margin-top:15px;opacity:0;transform:translateY(-30px);animation:fadeInDown 1.2s forwards;}
-  @keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px);}100%{opacity:1;transform:translateY(0);}}
-  @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
-  main{max-width:1200px;margin:auto;padding:40px 20px;}
-  .features{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin-bottom:60px;}
-  .feature{background:white;border-radius:15px;width:300px;padding:30px 20px;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,0.1);opacity:0;transform:translateY(30px);transition:transform 0.3s;}
-  .feature i{font-size:2.5em;color:#0077c2;margin-bottom:15px;transition:transform 0.3s;}
-  .feature:hover i{transform:rotate(-10deg);}
-  .feature h3{margin:0 0 10px;}
-  .feature p{font-size:0.95em;}
-  h2{text-align:center;color:#0077c2;margin-bottom:40px;font-size:2.2em;}
-  .subscriptions{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-bottom:50px;}
-  .card{background:white;border-radius:15px;width:320px;padding:25px;box-shadow:0 6px 15px rgba(0,0,0,0.15);position:relative;transition:transform 0.3s,box-shadow 0.3s;opacity:0;transform:translateY(30px);}
-  .card:hover{transform:translateY(-10px);box-shadow:0 12px 25px rgba(0,0,0,0.2);}
-  .card h3{color:#0077c2;font-size:1.6em;margin-top:0;}
-  .price{font-size:1.8em;font-weight:bold;margin:10px 0;color:#ff6600;}
-  .description{font-size:0.95em;margin-bottom:15px;}
-  .btn{display:inline-block;background:#0077c2;color:white;padding:12px 20px;border-radius:6px;cursor:pointer;transition:background 0.25s,transform 0.2s;margin-top:10px;}
-  .btn:hover{background:#005a96;transform:scale(1.05);}
-  .details{display:none;font-size:0.92em;margin-top:12px;background:#f0f4f8;padding:12px;border-radius:6px;}
-  .details ul{padding-left:20px;margin:0;}
-  .details ul li{margin-bottom:6px;}
-  .promo{background:#fffae6;border-left:6px solid #ff6600;padding:25px;border-radius:10px;text-align:center;font-size:1.15em;font-weight:500;margin-bottom:50px;opacity:0;transform:translateY(30px);}
-  .about{background:#e6f2ff;padding:50px 20px;border-radius:15px;text-align:center;margin-bottom:50px;opacity:0;transform:translateY(30px);}
-  .about h2{margin-bottom:25px;}
-  .about p{max-width:800px;margin:auto;font-size:1em;line-height:1.6;}
-  .reviews{text-align:center;margin-bottom:50px;}
-  .review{background:white;border-radius:15px;padding:25px 20px;margin:15px auto;max-width:600px;box-shadow:0 6px 15px rgba(0,0,0,0.1);opacity:0;transform:translateY(30px);}
-  .review p{font-style:italic;margin-bottom:10px;}
-  .review h4{margin:0;color:#0077c2;}
-  .stats{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:50px;}
-  .stat{background:#0077c2;color:white;padding:25px 20px;border-radius:15px;width:180px;text-align:center;opacity:0;transform:translateY(30px);}
-  .stat h3{margin:0;font-size:2em;}
-  .stat p{margin:5px 0 0;font-size:0.95em;}
-  footer{background:#0077c2;color:white;text-align:center;padding:25px 10px;}
-  @media(max-width:768px){.features,.subscriptions,.stats{flex-direction:column;align-items:center;}}
+:root{
+  --blue:#0b7fd6;
+  --blue-dark:#075fa1;
+  --accent:#ff7a00;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#2b2e33;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+/* ===== HERO ===== */
+header{
+  height:100vh;
+  background:linear-gradient(135deg,#0b7fd6,#00b4ff);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+header::after{
+  content:'';
+  position:absolute;
+  width:120%;
+  height:120%;
+  background:radial-gradient(circle at center,rgba(255,255,255,0.15),transparent 70%);
+}
+.hero{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+}
+.hero h1{
+  font-size:3.8em;
+  margin:0;
+  animation:fadeDown 1s forwards;
+}
+.hero p{
+  font-size:1.4em;
+  margin:20px 0 40px;
+  animation:fadeDown 1.2s forwards;
+}
+.hero .btn{
+  font-size:1.1em;
+  padding:16px 34px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* ===== MAIN ===== */
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+section{
+  margin-bottom:90px;
+}
+
+h2{
+  text-align:center;
+  font-size:2.6em;
+  margin-bottom:50px;
+  color:var(--blue-dark);
+}
+
+/* ===== FEATURES ===== */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.feature{
+  background:var(--card);
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.08);
+  transition:.4s;
+}
+.feature:hover{
+  transform:translateY(-8px);
+}
+.feature i{
+  font-size:2.5em;
+  color:var(--blue);
+  margin-bottom:20px;
+}
+
+/* ===== FILTER ===== */
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:50px;
+  flex-wrap:wrap;
+}
+.filter-btn{
+  background:#fff;
+  border:2px solid var(--blue);
+  color:var(--blue);
+  padding:10px 20px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--blue);
+  color:#fff;
+}
+
+/* ===== SUBSCRIPTIONS ===== */
+.subscriptions{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:35px;
+}
+.card{
+  background:var(--card);
+  border-radius:25px;
+  padding:35px;
+  box-shadow:0 20px 50px rgba(0,0,0,.12);
+  transition:.5s;
+}
+.card.hide{
+  opacity:0;
+  transform:scale(.9);
+  pointer-events:none;
+}
+.card h3{
+  margin-top:0;
+  font-size:1.8em;
+  color:var(--blue-dark);
+}
+.price{
+  font-size:2em;
+  font-weight:700;
+  color:var(--accent);
+  margin:15px 0;
+}
+.card ul{
+  padding-left:20px;
+}
+.card li{
+  margin-bottom:10px;
+}
+
+/* ===== PROMO ===== */
+.promo{
+  background:linear-gradient(135deg,#fff3e0,#ffe0b2);
+  padding:50px;
+  border-radius:30px;
+  text-align:center;
+  font-size:1.4em;
+  font-weight:600;
+}
+
+/* ===== STATS ===== */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:30px;
+}
+.stat{
+  background:var(--blue);
+  color:#fff;
+  padding:35px;
+  border-radius:25px;
+  text-align:center;
+}
+.stat h3{
+  font-size:2.5em;
+  margin:0;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#0b7fd6;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+
+/* ===== ANIM ===== */
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1;transform:none}
+}
+
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Drive Med</h1>
-  <p>Больница для машин — лечим авто с заботой и юмором!</p>
+  <div class="hero">
+    <h1>Drive Med</h1>
+    <p>Больница для машин. Честно. Спокойно. Профессионально.</p>
+    <button class="btn">Выбрать подписку</button>
+  </div>
 </header>
 
 <main>
 
-<!-- Преимущества -->
+<section>
+<h2>Почему Drive Med</h2>
 <div class="features">
-  <div class="feature"><i class="fas fa-stethoscope"></i><h3>Честный сервис</h3><p>Только то, что реально нужно вашей машине.</p></div>
-  <div class="feature"><i class="fas fa-clock"></i><h3>24/7</h3><p>Работаем круглосуточно в Москве и Красногорске.</p></div>
-  <div class="feature"><i class="fas fa-smile"></i><h3>Дружелюбно</h3><p>Ваш автомобиль почувствует заботу, а вы — комфорт и спокойствие.</p></div>
+  <div class="feature"><i class="fas fa-stethoscope"></i><h3>Честная диагностика</h3><p>Никаких лишних процедур.</p></div>
+  <div class="feature"><i class="fas fa-clock"></i><h3>24/7</h3><p>Работаем круглосуточно.</p></div>
+  <div class="feature"><i class="fas fa-user-md"></i><h3>Почти клиника</h3><p>Регламент, контроль, забота.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Подписки</h2>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">Все</button>
+  <button class="filter-btn" data-filter="service">Сервис</button>
+  <button class="filter-btn" data-filter="wash">Мойка</button>
+  <button class="filter-btn" data-filter="tires">Шиномонтаж</button>
 </div>
 
-<!-- Подписки -->
-<h2>Наши подписки</h2>
 <div class="subscriptions">
-  <div class="card"><h3>Полная клиника — Базовый</h3><div class="price">9 900 ₽/мес</div><div class="description">1 ТО, 2 экспресс-мойки, 1 шиномонтаж, скидка 5%</div><a class="btn" onclick="toggleDetails(this)">Подробнее</a><div class="details"><ul><li>1 ТО/мес: диагностика, замена масла, проверка тормозов</li><li>2 экспресс-мойки/мес</li><li>1 шиномонтаж/сезон</li><li>Скидка на запчасти 5%</li></ul></div><a href="#" class="btn">Записаться</a></div>
-  <div class="card"><h3>Полная клиника — Стандарт</h3><div class="price">14 900 ₽/мес</div><div class="description">2 ТО, 4 экспресс-мойки, 1 шиномонтаж, скидка 10%</div><a class="btn" onclick="toggleDetails(this)">Подробнее</a><div class="details"><ul><li>2 ТО/мес</li><li>4 экспресс-мойки/мес</li><li>1 шиномонтаж + проверка давления</li><li>Скидка на запчасти 10%</li></ul></div><a href="#" class="btn">Записаться</a></div>
+
+<div class="card" data-category="service">
+  <h3>Сервис — Базовый</h3>
+  <div class="price">7 900 ₽</div>
+  <ul>
+    <li>Диагностика</li>
+    <li>1 ТО</li>
+    <li>Скидка на запчасти 5%</li>
+  </ul>
 </div>
 
-<!-- Акция -->
-<div class="promo">🎉 Первые 100 клиентов получают карточку «Основатель сервиса» с персональной скидкой + бесплатную диагностику!</div>
+<div class="card" data-category="service">
+  <h3>Сервис — Премиум</h3>
+  <div class="price">14 900 ₽</div>
+  <ul>
+    <li>2 ТО</li>
+    <li>Приоритетное обслуживание</li>
+    <li>Скидка на запчасти 10%</li>
+  </ul>
+</div>
 
-<!-- Статистика -->
+<div class="card" data-category="wash">
+  <h3>Мойка — Комфорт</h3>
+  <div class="price">5 900 ₽</div>
+  <ul>
+    <li>4 экспресс-мойки</li>
+    <li>Без очередей</li>
+  </ul>
+</div>
+
+<div class="card" data-category="tires">
+  <h3>Шиномонтаж</h3>
+  <div class="price">3 900 ₽</div>
+  <ul>
+    <li>1 сезонная смена</li>
+    <li>Балансировка</li>
+  </ul>
+</div>
+
+</div>
+</section>
+
+<section class="promo">
+🎉 Первые 100 клиентов получают статус «Основатель Drive Med» и пожизненную скидку
+</section>
+
+<section>
+<h2>Цифры</h2>
 <div class="stats">
-  <div class="stat"><h3>500+</h3><p>Довольных авто</p></div>
-  <div class="stat"><h3>10</h3><p>Лет опыта</p></div>
-  <div class="stat"><h3>24/7</h3><p>График работы</p></div>
+  <div class="stat"><h3>24/7</h3><p>Работаем</p></div>
+  <div class="stat"><h3>80%</h3><p>Возвращаются</p></div>
+  <div class="stat"><h3>0</h3><p>Развода</p></div>
 </div>
-
-<!-- О нас -->
-<div class="about"><h2>О нас</h2><p>Drive Med — современный автосервис, мойка и шиномонтаж в одном месте. Честно, дружелюбно, качественно. Мы поддержим вашу машину в отличном состоянии.</p></div>
-
-<!-- Отзывы -->
-<div class="reviews">
-  <h2>Отзывы клиентов</h2>
-  <div class="review"><p>"Отличный сервис! Машина всегда как новая."</p><h4>Игорь, Москва</h4></div>
-  <div class="review"><p>"Дружелюбные мастера и честные цены."</p><h4>Мария, Красногорск</h4></div>
-</div>
+</section>
 
 </main>
 
-<footer>Drive Med &copy; 2025 — честный сервис для машин | 24/7</footer>
+<footer>
+Drive Med © 2025 · Москва / Красногорск
+</footer>
 
 <script>
-function toggleDetails(btn){
-  const details=btn.nextElementSibling;
-  if(details.style.display==="block"){details.style.display="none";btn.textContent="Подробнее";}
-  else{details.style.display="block";btn.textContent="Скрыть";}
-}
-// Анимация при скролле
-const faders=document.querySelectorAll('.feature,.card,.promo,.about,.review,.stat');
-const appearOnScroll=new IntersectionObserver(function(entries,observer){
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting) return;
-    entry.target.style.opacity=1;
-    entry.target.style.transform="translateY(0)";
-    observer.unobserve(entry.target);
+const buttons=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.card');
+
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    cards.forEach(card=>{
+      if(filter==='all'||card.dataset.category===filter){
+        card.classList.remove('hide');
+      }else{
+        card.classList.add('hide');
+      }
+    });
   });
-},{threshold:0.1});
-faders.forEach(fader=>appearOnScroll.observe(fader));
+});
 </script>
 
 </body>
 </html>
-
