@@ -2,313 +2,168 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<title>Drive Мёд — больница для машин</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drive Med — больница для машин</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#f6f8fb;
-  color:#1f2937;
-  scroll-behavior:smooth;
-}
+body{margin:0;font-family:Inter;background:#f6f8fb;color:#222}
+header{
+background:linear-gradient(135deg,#0b6fbf,#00aaff);
+color:#fff;padding:120px 20px;text-align:center}
+header h1{font-size:3.5em;margin:0}
+header p{font-size:1.3em;opacity:.95}
 
-/* ---------- HERO ---------- */
-.hero{
-  height:100vh;
-  background:linear-gradient(135deg,#0f5fd6,#22c1c3);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-.hero::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at top,rgba(255,255,255,.15),transparent 60%);
-}
-.hero-content{
-  z-index:2;
-  max-width:800px;
-  padding:20px;
-}
-.hero h1{
-  font-size:3.4rem;
-  margin-bottom:20px;
-}
-.hero p{
-  font-size:1.3rem;
-  opacity:.95;
-}
-.hero .cta{
-  margin-top:40px;
-}
-.btn{
-  background:#fff;
-  color:#0f5fd6;
-  padding:16px 34px;
-  border-radius:40px;
-  font-weight:600;
-  display:inline-block;
-  transition:.3s;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 30px rgba(0,0,0,.25);
-}
+section{max-width:1200px;margin:auto;padding:60px 20px}
 
-/* ---------- SECTIONS ---------- */
-section{
-  padding:100px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-h2{
-  text-align:center;
-  font-size:2.4rem;
-  margin-bottom:50px;
-}
+h2{text-align:center;color:#0b6fbf;font-size:2.2em;margin-bottom:40px}
 
-/* ---------- WHY ---------- */
-.why{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.why-item{
-  background:#fff;
-  border-radius:20px;
-  padding:30px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.3s;
-}
-.why-item:hover{transform:translateY(-8px)}
-.why-item i{
-  font-size:40px;
-  color:#0f5fd6;
-  margin-bottom:20px;
-}
+.filters{text-align:center;margin-bottom:40px}
+.filters button{
+padding:10px 18px;border:none;border-radius:20px;
+margin:5px;cursor:pointer;
+background:#e0e6ee;font-weight:600}
+.filters button.active{background:#0b6fbf;color:#fff}
 
-/* ---------- FILTER ---------- */
-.filter{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-bottom:50px;
-  flex-wrap:wrap;
-}
-.filter button{
-  padding:12px 26px;
-  border-radius:30px;
-  border:none;
-  background:#e5e7eb;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-}
-.filter button.active,
-.filter button:hover{
-  background:#0f5fd6;
-  color:#fff;
-}
+.cards{display:flex;flex-wrap:wrap;gap:25px;justify-content:center}
 
-/* ---------- SUBSCRIPTIONS ---------- */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-}
 .card{
-  background:#fff;
-  border-radius:24px;
-  padding:35px;
-  box-shadow:0 20px 40px rgba(0,0,0,.12);
-  transition:.4s;
-  position:relative;
-}
-.card:hover{
-  transform:translateY(-12px) scale(1.02);
-}
-.card h3{margin-top:0}
-.price{
-  font-size:2rem;
-  color:#0f5fd6;
-  margin:15px 0;
-}
-.card ul{
-  padding-left:20px;
-}
-.card li{
-  margin-bottom:10px;
-}
-.card .btn{
-  margin-top:25px;
-}
+background:#fff;width:320px;border-radius:18px;
+padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.12);
+transition:.3s}
+.card:hover{transform:translateY(-8px)}
+.card h3{margin-top:0;color:#0b6fbf}
+.price{font-size:1.8em;font-weight:700;color:#ff7a00}
+ul{padding-left:20px}
+li{margin-bottom:6px}
+.badge{
+background:#ff7a00;color:#fff;
+display:inline-block;padding:4px 10px;
+border-radius:12px;font-size:.75em;margin-bottom:10px}
 
-/* ---------- TAG ---------- */
-.tag{
-  position:absolute;
-  top:20px;
-  right:20px;
-  background:#22c1c3;
-  color:#fff;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:.8rem;
-}
-
-/* ---------- STEPS ---------- */
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  text-align:center;
-}
-.step{
-  background:#fff;
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-/* ---------- PROMO ---------- */
-.promo{
-  background:linear-gradient(135deg,#ffb703,#ff7b00);
-  color:#fff;
-  border-radius:30px;
-  padding:60px 30px;
-  text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
-}
-
-/* ---------- FOOTER ---------- */
 footer{
-  background:#0f172a;
-  color:#fff;
-  text-align:center;
-  padding:40px 20px;
-}
+background:#0b6fbf;color:#fff;text-align:center;
+padding:30px;margin-top:60px}
+
+.hidden{display:none}
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <h1>Drive Med</h1>
-    <p>Больница для машин. Подписка вместо разводов и неожиданностей.</p>
-    <div class="cta">
-      <a href="#subs" class="btn">Выбрать подписку</a>
-    </div>
-  </div>
-</div>
+<header>
+<h1>Drive Мёд</h1>
+<p>Больница для машин. Честно. По подписке. Без сюрпризов.</p>
+</header>
 
-<!-- WHY -->
 <section>
-<h2>Почему подписка — это выгодно</h2>
-<div class="why">
-  <div class="why-item"><i class="fa-solid fa-heart-pulse"></i><h3>Честно</h3><p>Без навязываний и сюрпризов</p></div>
-  <div class="why-item"><i class="fa-solid fa-wallet"></i><h3>Экономия</h3><p>До 30% дешевле разовых визитов</p></div>
-  <div class="why-item"><i class="fa-solid fa-clock"></i><h3>24/7</h3><p>Когда удобно вам</p></div>
-</div>
-</section>
+<h2>Выберите направление</h2>
 
-<!-- FILTER + SUBS -->
-<section id="subs">
-<h2>Подписки Drive Med</h2>
-
-<div class="filter">
-  <button class="active" onclick="filterCards('all')">Все</button>
-  <button onclick="filterCards('wash')">Мойка</button>
-  <button onclick="filterCards('service')">Сервис</button>
-  <button onclick="filterCards('tires')">Шиномонтаж</button>
+<div class="filters">
+<button class="active" onclick="filterCards('all')">Все</button>
+<button onclick="filterCards('service')">Автосервис</button>
+<button onclick="filterCards('wash')">Мойка</button>
+<button onclick="filterCards('tires')">Шиномонтаж</button>
+<button onclick="filterCards('combo')">Комбо</button>
 </div>
 
 <div class="cards">
 
-<div class="card wash">
-<span class="tag">Мойка</span>
-<h3>Wash Basic</h3>
-<div class="price">4 900 ₽/мес</div>
+<div class="card service">
+<span class="badge">СЕРВИС</span>
+<h3>Мини-осмотр</h3>
+<div class="price">3 900 ₽</div>
 <ul>
-<li>4 экспресс-мойки</li>
-<li>Очередь «подписка»</li>
-<li>Контроль качества</li>
+<li>Диагностика</li>
+<li>Рекомендации</li>
+<li>Скидка 3%</li>
 </ul>
-<a class="btn">Оставить заявку</a>
-</div>
-
-<div class="card wash">
-<span class="tag">Мойка</span>
-<h3>Wash Premium</h3>
-<div class="price">8 900 ₽/мес</div>
-<ul>
-<li>8 моек</li>
-<li>Приоритет</li>
-<li>Скидка 10%</li>
-</ul>
-<a class="btn">Оставить заявку</a>
 </div>
 
 <div class="card service">
-<span class="tag">Сервис</span>
-<h3>Service Care</h3>
-<div class="price">9 900 ₽/мес</div>
+<span class="badge">СЕРВИС</span>
+<h3>Клиника</h3>
+<div class="price">7 900 ₽</div>
 <ul>
-<li>Диагностика</li>
 <li>ТО</li>
-<li>Скидка на запчасти 5%</li>
+<li>Мелкие работы</li>
+<li>Скидка 7%</li>
 </ul>
-<a class="btn">Оставить заявку</a>
 </div>
 
-<div class="card all">
-<span class="tag">Всё</span>
-<h3>Полная клиника</h3>
-<div class="price">14 900 ₽/мес</div>
+<div class="card service">
+<span class="badge">СЕРВИС VIP</span>
+<h3>ВИП-врач</h3>
+<div class="price">12 900 ₽</div>
 <ul>
-<li>Сервис + мойка</li>
-<li>Экспресс-мойки</li>
-<li>Скидка 10%</li>
+<li>Личный мастер</li>
+<li>Приоритет</li>
+<li>Скидка 12%</li>
 </ul>
-<a class="btn">Оставить заявку</a>
 </div>
 
+<div class="card wash">
+<span class="badge">МОЙКА</span>
+<h3>Мини-душ</h3>
+<div class="price">3 490 ₽</div>
+<ul><li>4 экспресс</li></ul>
 </div>
-</section>
 
-<!-- PROMO -->
-<section>
-<div class="promo">
-<h2>Первые 100 клиентов</h2>
-<p>Статус «Основатель сервиса» + бесплатная диагностика навсегда</p>
+<div class="card wash">
+<span class="badge">МОЙКА</span>
+<h3>Чисто всегда</h3>
+<div class="price">5 990 ₽</div>
+<ul><li>8 экспресс</li><li>2 комплекс</li></ul>
+</div>
+
+<div class="card wash">
+<span class="badge">МОЙКА VIP</span>
+<h3>Палата люкс</h3>
+<div class="price">8 990 ₽</div>
+<ul><li>12 экспресс</li><li>4 комплекс</li></ul>
+</div>
+
+<div class="card tires">
+<span class="badge">ШИНЫ</span>
+<h3>Сезон</h3>
+<div class="price">2 990 ₽</div>
+<ul><li>1 шиномонтаж</li></ul>
+</div>
+
+<div class="card tires">
+<span class="badge">ШИНЫ</span>
+<h3>Без очередей</h3>
+<div class="price">4 990 ₽</div>
+<ul><li>2 шиномонтажа</li></ul>
+</div>
+
+<div class="card combo">
+<span class="badge">КОМБО</span>
+<h3>Полная клиника</h3>
+<div class="price">14 900 ₽</div>
+<ul><li>Сервис + мойка + шины</li></ul>
+</div>
+
 </div>
 </section>
 
 <footer>
-Drive Med © 2025 • Москва / Красногорск • 24/7
+Drive Мёд © 2025 — Москва / Красногорск · 24/7
 </footer>
 
 <script>
 function filterCards(type){
-  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-  document.querySelectorAll('.card').forEach(card=>{
-    card.style.display = (type==='all'||card.classList.contains(type)) ? 'block' : 'none';
-  });
+document.querySelectorAll('.filters button')
+.forEach(b=>b.classList.remove('active'))
+event.target.classList.add('active')
+document.querySelectorAll('.card').forEach(card=>{
+card.classList.remove('hidden')
+if(type!=='all' && !card.classList.contains(type))
+card.classList.add('hidden')
+})
 }
 </script>
 
 </body>
 </html>
+
+
