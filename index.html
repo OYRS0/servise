@@ -2,168 +2,138 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Drive Мёд — больница для машин</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive Med — больница для машин</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter;background:#f6f8fb;color:#222}
-header{
-background:linear-gradient(135deg,#0b6fbf,#00aaff);
-color:#fff;padding:120px 20px;text-align:center}
-header h1{font-size:3.5em;margin:0}
-header p{font-size:1.3em;opacity:.95}
-
-section{max-width:1200px;margin:auto;padding:60px 20px}
-
-h2{text-align:center;color:#0b6fbf;font-size:2.2em;margin-bottom:40px}
-
-.filters{text-align:center;margin-bottom:40px}
-.filters button{
-padding:10px 18px;border:none;border-radius:20px;
-margin:5px;cursor:pointer;
-background:#e0e6ee;font-weight:600}
-.filters button.active{background:#0b6fbf;color:#fff}
-
-.cards{display:flex;flex-wrap:wrap;gap:25px;justify-content:center}
-
-.card{
-background:#fff;width:320px;border-radius:18px;
-padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.12);
-transition:.3s}
-.card:hover{transform:translateY(-8px)}
-.card h3{margin-top:0;color:#0b6fbf}
-.price{font-size:1.8em;font-weight:700;color:#ff7a00}
-ul{padding-left:20px}
-li{margin-bottom:6px}
-.badge{
-background:#ff7a00;color:#fff;
-display:inline-block;padding:4px 10px;
-border-radius:12px;font-size:.75em;margin-bottom:10px}
-
-footer{
-background:#0b6fbf;color:#fff;text-align:center;
-padding:30px;margin-top:60px}
-
-.hidden{display:none}
+body{margin:0;font-family:'Inter',sans-serif;background:#f6f8fb;color:#222}
+section{padding:80px 20px}
+.container{max-width:1200px;margin:auto}
+h1,h2,h3{text-align:center}
+h1{font-size:3em}
+h2{font-size:2.2em;margin-bottom:40px}
+p{line-height:1.6}
+.btn{display:inline-block;background:#0077c2;color:#fff;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:600}
+.hero{background:linear-gradient(135deg,#0077c2,#00aaff);color:#fff;text-align:center;padding:140px 20px}
+.cards{display:flex;gap:25px;flex-wrap:wrap;justify-content:center}
+.card{background:#fff;border-radius:18px;padding:30px;width:320px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.price{font-size:1.6em;color:#ff6a00;font-weight:700}
+.muted{color:#666;font-size:.95em}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.compare div{background:#fff;padding:25px;border-radius:15px}
+footer{background:#0077c2;color:#fff;text-align:center;padding:30px}
+.badge{display:inline-block;background:#e6f2ff;color:#0077c2;padding:6px 14px;border-radius:20px;font-size:.85em;margin-bottom:10px}
 </style>
 </head>
 <body>
 
-<header>
-<h1>Drive Мёд</h1>
-<p>Больница для машин. Честно. По подписке. Без сюрпризов.</p>
-</header>
+<section class="hero">
+  <h1>Drive Med</h1>
+  <p>Больница для машин. Честный автосервис без развода и навязывания.</p>
+  <a class="btn" href="#">Записаться на диагностику</a>
+</section>
 
 <section>
-<h2>Выберите направление</h2>
-
-<div class="filters">
-<button class="active" onclick="filterCards('all')">Все</button>
-<button onclick="filterCards('service')">Автосервис</button>
-<button onclick="filterCards('wash')">Мойка</button>
-<button onclick="filterCards('tires')">Шиномонтаж</button>
-<button onclick="filterCards('combo')">Комбо</button>
-</div>
-
+<div class="container">
+<h2>Почему нам доверяют</h2>
 <div class="cards">
-
-<div class="card service">
-<span class="badge">СЕРВИС</span>
-<h3>Мини-осмотр</h3>
-<div class="price">3 900 ₽</div>
-<ul>
-<li>Диагностика</li>
-<li>Рекомендации</li>
-<li>Скидка 3%</li>
-</ul>
+  <div class="card"><h3>Честность</h3><p>Мы не продаём лишнее. Только то, что реально нужно машине.</p></div>
+  <div class="card"><h3>24/7</h3><p>Работаем круглосуточно. Москва / Красногорск.</p></div>
+  <div class="card"><h3>Подход клиники</h3><p>Каждое авто — пациент с историей, а не разовая услуга.</p></div>
 </div>
-
-<div class="card service">
-<span class="badge">СЕРВИС</span>
-<h3>Клиника</h3>
-<div class="price">7 900 ₽</div>
-<ul>
-<li>ТО</li>
-<li>Мелкие работы</li>
-<li>Скидка 7%</li>
-</ul>
 </div>
+</section>
 
-<div class="card service">
-<span class="badge">СЕРВИС VIP</span>
-<h3>ВИП-врач</h3>
-<div class="price">12 900 ₽</div>
-<ul>
-<li>Личный мастер</li>
-<li>Приоритет</li>
-<li>Скидка 12%</li>
-</ul>
+<section>
+<div class="container">
+<h2>Услуги и розничные цены</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Автосервис</h3>
+    <p>Диагностика — <b>2 500 ₽</b><br>Замена масла — <b>от 1 800 ₽</b><br>Тормоза — <b>от 3 500 ₽</b></p>
+  </div>
+  <div class="card">
+    <h3>Автомойка</h3>
+    <p>Экспресс — <b>800 ₽</b><br>Комплекс — <b>1 600 ₽</b><br>Химчистка — отдельно</p>
+  </div>
+  <div class="card">
+    <h3>Шиномонтаж</h3>
+    <p>R16 — <b>2 400 ₽</b><br>Балансировка — включена</p>
+  </div>
 </div>
-
-<div class="card wash">
-<span class="badge">МОЙКА</span>
-<h3>Мини-душ</h3>
-<div class="price">3 490 ₽</div>
-<ul><li>4 экспресс</li></ul>
 </div>
+</section>
 
-<div class="card wash">
-<span class="badge">МОЙКА</span>
-<h3>Чисто всегда</h3>
-<div class="price">5 990 ₽</div>
-<ul><li>8 экспресс</li><li>2 комплекс</li></ul>
+<section>
+<div class="container">
+<h2>Чем мы лучше обычных сервисов</h2>
+<div class="compare">
+  <div>
+    <h3>Обычный сервис</h3>
+    <ul>
+      <li>Навязывание работ</li>
+      <li>Нет истории авто</li>
+      <li>Каждый раз новые мастера</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Drive Med</h3>
+    <ul>
+      <li>Медкарта автомобиля</li>
+      <li>Прозрачные рекомендации</li>
+      <li>Вы — постоянный клиент, а не «заехал и уехал»</li>
+    </ul>
+  </div>
 </div>
-
-<div class="card wash">
-<span class="badge">МОЙКА VIP</span>
-<h3>Палата люкс</h3>
-<div class="price">8 990 ₽</div>
-<ul><li>12 экспресс</li><li>4 комплекс</li></ul>
 </div>
+</section>
 
-<div class="card tires">
-<span class="badge">ШИНЫ</span>
-<h3>Сезон</h3>
-<div class="price">2 990 ₽</div>
-<ul><li>1 шиномонтаж</li></ul>
+<section>
+<div class="container">
+<h2>Подписки для своих</h2>
+<p style="text-align:center;max-width:700px;margin:auto">
+Подписка — это не обязаловка. Это способ обслуживать авто выгоднее, быстрее и без лишних разговоров.
+</p>
+<br>
+<div class="cards">
+  <div class="card">
+    <span class="badge">Автосервис</span>
+    <h3>Комфорт</h3>
+    <p class="price">9 900 ₽/мес</p>
+    <p class="muted">Экономия до 25%</p>
+    <p>Диагностика 2× / мес<br>Скидка на работы 10%<br>Медкарта авто</p>
+  </div>
+  <div class="card">
+    <span class="badge">Мойка</span>
+    <h3>Pro</h3>
+    <p class="price">6 900 ₽/мес</p>
+    <p class="muted">До 12 моек</p>
+    <p>Экспресс-мойки<br>Приоритет<br>Антидождь</p>
+  </div>
+  <div class="card">
+    <span class="badge">Шины</span>
+    <h3>Season</h3>
+    <p class="price">4 900 ₽/сезон</p>
+    <p>Шиномонтаж<br>Балансировка<br>Без очередей</p>
+  </div>
 </div>
-
-<div class="card tires">
-<span class="badge">ШИНЫ</span>
-<h3>Без очередей</h3>
-<div class="price">4 990 ₽</div>
-<ul><li>2 шиномонтажа</li></ul>
 </div>
+</section>
 
-<div class="card combo">
-<span class="badge">КОМБО</span>
-<h3>Полная клиника</h3>
-<div class="price">14 900 ₽</div>
-<ul><li>Сервис + мойка + шины</li></ul>
-</div>
-
+<section>
+<div class="container">
+<h2>Первые 100 клиентов</h2>
+<p style="text-align:center">
+Бесплатная диагностика + статус «Основатель сервиса»  
+<br>Фиксация максимальных условий навсегда
+</p>
 </div>
 </section>
 
 <footer>
-Drive Мёд © 2025 — Москва / Красногорск · 24/7
+Drive Med © 2025 — честный сервис для машин
 </footer>
-
-<script>
-function filterCards(type){
-document.querySelectorAll('.filters button')
-.forEach(b=>b.classList.remove('active'))
-event.target.classList.add('active')
-document.querySelectorAll('.card').forEach(card=>{
-card.classList.remove('hidden')
-if(type!=='all' && !card.classList.contains(type))
-card.classList.add('hidden')
-})
-}
-</script>
 
 </body>
 </html>
-
 
