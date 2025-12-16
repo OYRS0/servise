@@ -20,7 +20,7 @@
   header {
     background: linear-gradient(135deg, #0077c2, #00aaff);
     color: white;
-    padding: 80px 20px 60px;
+    padding: 100px 20px 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -28,15 +28,18 @@
   header h1 {
     font-size: 3em;
     margin: 0;
-    animation: fadeInDown 1s ease forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s forwards;
   }
   header p {
     font-size: 1.3em;
     margin-top: 15px;
-    animation: fadeInDown 1.2s ease forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1.2s forwards;
   }
 
-  /* --- Анимации --- */
   @keyframes fadeInDown {
     0% {opacity: 0; transform: translateY(-30px);}
     100% {opacity: 1; transform: translateY(0);}
@@ -52,32 +55,32 @@
     padding: 40px 20px;
   }
 
-  /* --- Блок преимуществ --- */
+  /* --- Преимущества --- */
   .features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
   .feature {
     background: white;
     border-radius: 15px;
     width: 300px;
-    padding: 25px;
+    padding: 30px 20px;
     text-align: center;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 0.8s forwards;
   }
-  .feature:nth-child(1){animation-delay: 0.2s;}
-  .feature:nth-child(2){animation-delay: 0.4s;}
-  .feature:nth-child(3){animation-delay: 0.6s;}
   .feature i {
     font-size: 2.5em;
     color: #0077c2;
     margin-bottom: 15px;
+    transition: transform 0.3s;
+  }
+  .feature:hover i {
+    transform: rotate(-10deg);
   }
   .feature h3 {margin: 0 0 10px;}
   .feature p {font-size: 0.95em;}
@@ -100,7 +103,6 @@
     transition: transform 0.3s, box-shadow 0.3s;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 0.8s forwards;
   }
   .card:hover {
     transform: translateY(-10px);
@@ -117,10 +119,13 @@
     border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.25s;
+    transition: background 0.25s, transform 0.2s;
     margin-top: 10px;
   }
-  .btn:hover {background: #005a96;}
+  .btn:hover {
+    background: #005a96;
+    transform: scale(1.05);
+  }
   .details {
     display: none;
     font-size: 0.92em;
@@ -142,6 +147,8 @@
     font-size: 1.15em;
     font-weight: 500;
     margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   /* --- О нас --- */
@@ -150,21 +157,61 @@
     padding: 50px 20px;
     border-radius: 15px;
     text-align: center;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
   }
   .about h2 {margin-bottom: 25px;}
   .about p {max-width: 800px; margin: auto; font-size: 1em; line-height: 1.6;}
 
-  /* --- Footer --- */
+  /* --- Отзывы --- */
+  .reviews {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .review {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 20px;
+    margin: 15px auto;
+    max-width: 600px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .review p {font-style: italic; margin-bottom: 10px;}
+  .review h4 {margin: 0; color: #0077c2;}
+
+  /* --- Статистика --- */
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .stat {
+    background: #0077c2;
+    color: white;
+    padding: 25px 20px;
+    border-radius: 15px;
+    width: 180px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .stat h3 {margin: 0; font-size: 2em;}
+  .stat p {margin: 5px 0 0; font-size: 0.95em;}
+
   footer {
     background: #0077c2;
     color: white;
     text-align: center;
     padding: 25px 10px;
-    margin-top: 50px;
   }
 
   @media(max-width:768px){
-    .features, .subscriptions {flex-direction: column; align-items: center;}
+    .features, .subscriptions, .stats {flex-direction: column; align-items: center;}
   }
 </style>
 </head>
@@ -177,96 +224,84 @@
 
 <main>
 
-  <!-- --- Преимущества --- -->
-  <div class="features">
-    <div class="feature">
-      <i class="fas fa-stethoscope"></i>
-      <h3>Честный сервис</h3>
-      <p>Без лишних процедур и разводов — только то, что реально нужно вашей машине.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-clock"></i>
-      <h3>24/7</h3>
-      <p>Работаем круглосуточно в Москве и Красногорске — приезжай, когда удобно.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-smile"></i>
-      <h3>Дружелюбно и с юмором</h3>
-      <p>Ваш автомобиль почувствует заботу, а вы — комфорт и спокойствие.</p>
-    </div>
+<!-- Преимущества -->
+<div class="features">
+  <div class="feature">
+    <i class="fas fa-stethoscope"></i>
+    <h3>Честный сервис</h3>
+    <p>Без лишних процедур и разводов — только то, что реально нужно вашей машине.</p>
   </div>
-
-  <!-- --- Подписки --- -->
-  <h2>Наши подписки</h2>
-  <div class="subscriptions">
-    <!-- Полная клиника Базовый -->
-    <div class="card">
-      <h3>Полная клиника — Базовый</h3>
-      <div class="price">9 900 ₽/мес</div>
-      <div class="description">1 ТО, 2 экспресс-мойки, 1 шиномонтаж, скидка на запчасти 5%</div>
-      <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
-      <div class="details">
-        <ul>
-          <li><strong>Сервис:</strong> 1 ТО/мес (диагностика, замена масла, проверка тормозов)</li>
-          <li><strong>Мойка:</strong> 2 экспресс-мойки/мес</li>
-          <li><strong>Шиномонтаж:</strong> 1 раз/сезон</li>
-          <li><strong>Скидка на запчасти:</strong> 5%</li>
-          <li><strong>Бонус:</strong> бесплатная диагностика при каждом посещении</li>
-        </ul>
-      </div>
-      <a href="#" class="btn">Записаться</a>
-    </div>
-
-    <!-- Полная клиника Стандарт -->
-    <div class="card">
-      <h3>Полная клиника — Стандарт</h3>
-      <div class="price">14 900 ₽/мес</div>
-      <div class="description">2 ТО, 4 экспресс-мойки, 1 шиномонтаж, скидка на запчасти 10%</div>
-      <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
-      <div class="details">
-        <ul>
-          <li>Сервис: 2 ТО/мес</li>
-          <li>Мойка: 4 экспресс-мойки</li>
-          <li>Шиномонтаж: 1 раз + проверка давления и балансировка</li>
-          <li>Скидка на запчасти: 10%</li>
-          <li>Бонус: бесплатная диагностика при каждом посещении</li>
-        </ul>
-      </div>
-      <a href="#" class="btn">Записаться</a>
-    </div>
-
-    <!-- Полная клиника Премиум -->
-    <div class="card">
-      <h3>Полная клиника — Премиум</h3>
-      <div class="price">24 900 ₽/мес</div>
-      <div class="description">4 ТО, 8 экспресс-мойк, 1 химчистка, 1 шиномонтаж, скидка 15%</div>
-      <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
-      <div class="details">
-        <ul>
-          <li>Сервис: 4 ТО/мес</li>
-          <li>Мойка: 8 экспресс + 1 химчистка/6 мес</li>
-          <li>Шиномонтаж: 1 раз + хранение шин</li>
-          <li>Скидка на запчасти: 15%</li>
-          <li>Бонус: бесплатная диагностика при каждом посещении</li>
-        </ul>
-      </div>
-      <a href="#" class="btn">Записаться</a>
-    </div>
+  <div class="feature">
+    <i class="fas fa-clock"></i>
+    <h3>24/7</h3>
+    <p>Работаем круглосуточно в Москве и Красногорске — приезжай, когда удобно.</p>
   </div>
-
-  <!-- --- Акция --- -->
-  <div class="promo">
-    🎉 Первые 100 клиентов получают карточку «Основатель сервиса» с персональной скидкой + бесплатную диагностику при каждом посещении!
+  <div class="feature">
+    <i class="fas fa-smile"></i>
+    <h3>Дружелюбно и с юмором</h3>
+    <p>Ваш автомобиль почувствует заботу, а вы — комфорт и спокойствие.</p>
   </div>
+</div>
 
-  <!-- --- О нас --- -->
-  <div class="about">
-    <h2>О нас</h2>
-    <p>
-      Drive Med — современный автосервис, мойка и шиномонтаж в одном месте. Мы работаем с клиентами честно и дружелюбно, 
-      используем только качественные материалы и современное оборудование. Наши специалисты всегда готовы дать рекомендации и поддержать вашу машину в отличном состоянии.
-    </p>
+<!-- Подписки -->
+<h2>Наши подписки</h2>
+<div class="subscriptions">
+  <div class="card">
+    <h3>Полная клиника — Базовый</h3>
+    <div class="price">9 900 ₽/мес</div>
+    <div class="description">1 ТО, 2 экспресс-мойки, 1 шиномонтаж, скидка 5%</div>
+    <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
+    <div class="details">
+      <ul>
+        <li>1 ТО/мес: диагностика, замена масла, проверка тормозов</li>
+        <li>2 экспресс-мойки/мес</li>
+        <li>1 шиномонтаж/сезон</li>
+        <li>Скидка на запчасти 5%</li>
+      </ul>
+    </div>
+    <a href="#" class="btn">Записаться</a>
   </div>
+  <div class="card">
+    <h3>Полная клиника — Стандарт</h3>
+    <div class="price">14 900 ₽/мес</div>
+    <div class="description">2 ТО, 4 экспресс-мойки, 1 шиномонтаж, скидка 10%</div>
+    <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
+    <div class="details">
+      <ul>
+        <li>2 ТО/мес</li>
+        <li>4 экспресс-мойки/мес</li>
+        <li>1 шиномонтаж + проверка давления и балансировка</li>
+        <li>Скидка на запчасти 10%</li>
+      </ul>
+    </div>
+    <a href="#" class="btn">Записаться</a>
+  </div>
+</div>
+
+<!-- Акция -->
+<div class="promo">
+🎉 Первые 100 клиентов получают карточку «Основатель сервиса» с персональной скидкой + бесплатную диагностику!
+</div>
+
+<!-- Статистика -->
+<div class="stats">
+  <div class="stat"><h3>500+</h3><p>Довольных автомобилей</p></div>
+  <div class="stat"><h3>10</h3><p>Лет опыта</p></div>
+  <div class="stat"><h3>24/7</h3><p>График работы</p></div>
+</div>
+
+<!-- О нас -->
+<div class="about">
+  <h2>О нас</h2>
+  <p>Drive Med — современный автосервис, мойка и шиномонтаж в одном месте. Мы работаем честно и дружелюбно, используем качественные материалы и современное оборудование. Наши специалисты всегда готовы поддержать вашу машину в отличном состоянии.</p>
+</div>
+
+<!-- Отзывы -->
+<div class="reviews">
+  <h2>Отзывы клиентов</h2>
+  <div class="review"><p>"Отличный сервис! Машина всегда как новая."</p><h4>Игорь, Москва</h4></div>
+  <div class="review"><p>"Дружелюбные мастера и честные цены."</p><h4>Мария, Красногорск</h4></div>
+</div>
 
 </main>
 
@@ -275,16 +310,29 @@
 </footer>
 
 <script>
-  function toggleDetails(btn){
-    const details = btn.nextElementSibling;
-    if(details.style.display === "block"){
-      details.style.display = "none";
-      btn.textContent = "Подробнее";
-    } else {
-      details.style.display = "block";
-      btn.textContent = "Скрыть";
-    }
+function toggleDetails(btn){
+  const details = btn.nextElementSibling;
+  if(details.style.display === "block"){
+    details.style.display = "none";
+    btn.textContent = "Подробнее";
+  } else {
+    details.style.display = "block";
+    btn.textContent = "Скрыть";
   }
+}
+
+// Анимация появления элементов при скролле
+const faders = document.querySelectorAll('.feature, .card, .promo, .about, .review, .stat');
+const appearOptions = {threshold: 0.1, rootMargin: "0px 0px -50px 0px"};
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    entry.target.style.opacity = 1;
+    entry.target.style.transform = "translateY(0)";
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader=>appearOnScroll.observe(fader));
 </script>
 
 </body>
