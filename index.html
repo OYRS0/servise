@@ -7,212 +7,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-  body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f8fa;
-    color: #333;
-    scroll-behavior: smooth;
-  }
-
-  /* --- Шапка --- */
-  header {
-    background: linear-gradient(135deg, #0077c2, #00aaff);
-    color: white;
-    padding: 100px 20px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  header h1 {
-    font-size: 3em;
-    margin: 0;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInDown 1s forwards;
-  }
-  header p {
-    font-size: 1.3em;
-    margin-top: 15px;
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInDown 1.2s forwards;
-  }
-
-  @keyframes fadeInDown {
-    0% {opacity: 0; transform: translateY(-30px);}
-    100% {opacity: 1; transform: translateY(0);}
-  }
-  @keyframes fadeInUp {
-    0% {opacity: 0; transform: translateY(30px);}
-    100% {opacity: 1; transform: translateY(0);}
-  }
-
-  main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-  }
-
-  /* --- Преимущества --- */
-  .features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 60px;
-  }
-  .feature {
-    background: white;
-    border-radius: 15px;
-    width: 300px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .feature i {
-    font-size: 2.5em;
-    color: #0077c2;
-    margin-bottom: 15px;
-    transition: transform 0.3s;
-  }
-  .feature:hover i {
-    transform: rotate(-10deg);
-  }
-  .feature h3 {margin: 0 0 10px;}
-  .feature p {font-size: 0.95em;}
-
-  /* --- Подписки --- */
-  .subscriptions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-  .card {
-    background: white;
-    border-radius: 15px;
-    width: 320px;
-    padding: 25px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-  }
-  .card h3 {color: #0077c2; font-size: 1.6em; margin-top: 0;}
-  .price {font-size: 1.8em; font-weight: bold; margin: 10px 0; color: #ff6600;}
-  .description {font-size: 0.95em; margin-bottom: 15px;}
-  .btn {
-    display: inline-block;
-    background: #0077c2;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.25s, transform 0.2s;
-    margin-top: 10px;
-  }
-  .btn:hover {
-    background: #005a96;
-    transform: scale(1.05);
-  }
-  .details {
-    display: none;
-    font-size: 0.92em;
-    margin-top: 12px;
-    background: #f0f4f8;
-    padding: 12px;
-    border-radius: 6px;
-  }
-  .details ul {padding-left: 20px; margin: 0;}
-  .details ul li {margin-bottom: 6px;}
-
-  /* --- Акция --- */
-  .promo {
-    background: #fffae6;
-    border-left: 6px solid #ff6600;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 1.15em;
-    font-weight: 500;
-    margin-bottom: 50px;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  /* --- О нас --- */
-  .about {
-    background: #e6f2ff;
-    padding: 50px 20px;
-    border-radius: 15px;
-    text-align: center;
-    margin-bottom: 50px;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .about h2 {margin-bottom: 25px;}
-  .about p {max-width: 800px; margin: auto; font-size: 1em; line-height: 1.6;}
-
-  /* --- Отзывы --- */
-  .reviews {
-    margin-bottom: 50px;
-    text-align: center;
-  }
-  .review {
-    background: white;
-    border-radius: 15px;
-    padding: 25px 20px;
-    margin: 15px auto;
-    max-width: 600px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .review p {font-style: italic; margin-bottom: 10px;}
-  .review h4 {margin: 0; color: #0077c2;}
-
-  /* --- Статистика --- */
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-  .stat {
-    background: #0077c2;
-    color: white;
-    padding: 25px 20px;
-    border-radius: 15px;
-    width: 180px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  .stat h3 {margin: 0; font-size: 2em;}
-  .stat p {margin: 5px 0 0; font-size: 0.95em;}
-
-  footer {
-    background: #0077c2;
-    color: white;
-    text-align: center;
-    padding: 25px 10px;
-  }
-
-  @media(max-width:768px){
-    .features, .subscriptions, .stats {flex-direction: column; align-items: center;}
-  }
+  body{margin:0;padding:0;font-family:'Roboto',sans-serif;scroll-behavior:smooth;background:#f5f8fa;color:#333;}
+  a{text-decoration:none;}
+  header{background:linear-gradient(135deg,#0077c2,#00aaff);color:white;padding:120px 20px 80px;text-align:center;position:relative;overflow:hidden;}
+  header h1{font-size:3.5em;margin:0;opacity:0;transform:translateY(-30px);animation:fadeInDown 1s forwards;}
+  header p{font-size:1.4em;margin-top:15px;opacity:0;transform:translateY(-30px);animation:fadeInDown 1.2s forwards;}
+  @keyframes fadeInDown{0%{opacity:0;transform:translateY(-30px);}100%{opacity:1;transform:translateY(0);}}
+  @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+  main{max-width:1200px;margin:auto;padding:40px 20px;}
+  .features{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;margin-bottom:60px;}
+  .feature{background:white;border-radius:15px;width:300px;padding:30px 20px;text-align:center;box-shadow:0 6px 15px rgba(0,0,0,0.1);opacity:0;transform:translateY(30px);transition:transform 0.3s;}
+  .feature i{font-size:2.5em;color:#0077c2;margin-bottom:15px;transition:transform 0.3s;}
+  .feature:hover i{transform:rotate(-10deg);}
+  .feature h3{margin:0 0 10px;}
+  .feature p{font-size:0.95em;}
+  h2{text-align:center;color:#0077c2;margin-bottom:40px;font-size:2.2em;}
+  .subscriptions{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;margin-bottom:50px;}
+  .card{background:white;border-radius:15px;width:320px;padding:25px;box-shadow:0 6px 15px rgba(0,0,0,0.15);position:relative;transition:transform 0.3s,box-shadow 0.3s;opacity:0;transform:translateY(30px);}
+  .card:hover{transform:translateY(-10px);box-shadow:0 12px 25px rgba(0,0,0,0.2);}
+  .card h3{color:#0077c2;font-size:1.6em;margin-top:0;}
+  .price{font-size:1.8em;font-weight:bold;margin:10px 0;color:#ff6600;}
+  .description{font-size:0.95em;margin-bottom:15px;}
+  .btn{display:inline-block;background:#0077c2;color:white;padding:12px 20px;border-radius:6px;cursor:pointer;transition:background 0.25s,transform 0.2s;margin-top:10px;}
+  .btn:hover{background:#005a96;transform:scale(1.05);}
+  .details{display:none;font-size:0.92em;margin-top:12px;background:#f0f4f8;padding:12px;border-radius:6px;}
+  .details ul{padding-left:20px;margin:0;}
+  .details ul li{margin-bottom:6px;}
+  .promo{background:#fffae6;border-left:6px solid #ff6600;padding:25px;border-radius:10px;text-align:center;font-size:1.15em;font-weight:500;margin-bottom:50px;opacity:0;transform:translateY(30px);}
+  .about{background:#e6f2ff;padding:50px 20px;border-radius:15px;text-align:center;margin-bottom:50px;opacity:0;transform:translateY(30px);}
+  .about h2{margin-bottom:25px;}
+  .about p{max-width:800px;margin:auto;font-size:1em;line-height:1.6;}
+  .reviews{text-align:center;margin-bottom:50px;}
+  .review{background:white;border-radius:15px;padding:25px 20px;margin:15px auto;max-width:600px;box-shadow:0 6px 15px rgba(0,0,0,0.1);opacity:0;transform:translateY(30px);}
+  .review p{font-style:italic;margin-bottom:10px;}
+  .review h4{margin:0;color:#0077c2;}
+  .stats{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:50px;}
+  .stat{background:#0077c2;color:white;padding:25px 20px;border-radius:15px;width:180px;text-align:center;opacity:0;transform:translateY(30px);}
+  .stat h3{margin:0;font-size:2em;}
+  .stat p{margin:5px 0 0;font-size:0.95em;}
+  footer{background:#0077c2;color:white;text-align:center;padding:25px 10px;}
+  @media(max-width:768px){.features,.subscriptions,.stats{flex-direction:column;align-items:center;}}
 </style>
 </head>
 <body>
@@ -226,75 +60,30 @@
 
 <!-- Преимущества -->
 <div class="features">
-  <div class="feature">
-    <i class="fas fa-stethoscope"></i>
-    <h3>Честный сервис</h3>
-    <p>Без лишних процедур и разводов — только то, что реально нужно вашей машине.</p>
-  </div>
-  <div class="feature">
-    <i class="fas fa-clock"></i>
-    <h3>24/7</h3>
-    <p>Работаем круглосуточно в Москве и Красногорске — приезжай, когда удобно.</p>
-  </div>
-  <div class="feature">
-    <i class="fas fa-smile"></i>
-    <h3>Дружелюбно и с юмором</h3>
-    <p>Ваш автомобиль почувствует заботу, а вы — комфорт и спокойствие.</p>
-  </div>
+  <div class="feature"><i class="fas fa-stethoscope"></i><h3>Честный сервис</h3><p>Только то, что реально нужно вашей машине.</p></div>
+  <div class="feature"><i class="fas fa-clock"></i><h3>24/7</h3><p>Работаем круглосуточно в Москве и Красногорске.</p></div>
+  <div class="feature"><i class="fas fa-smile"></i><h3>Дружелюбно</h3><p>Ваш автомобиль почувствует заботу, а вы — комфорт и спокойствие.</p></div>
 </div>
 
 <!-- Подписки -->
 <h2>Наши подписки</h2>
 <div class="subscriptions">
-  <div class="card">
-    <h3>Полная клиника — Базовый</h3>
-    <div class="price">9 900 ₽/мес</div>
-    <div class="description">1 ТО, 2 экспресс-мойки, 1 шиномонтаж, скидка 5%</div>
-    <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
-    <div class="details">
-      <ul>
-        <li>1 ТО/мес: диагностика, замена масла, проверка тормозов</li>
-        <li>2 экспресс-мойки/мес</li>
-        <li>1 шиномонтаж/сезон</li>
-        <li>Скидка на запчасти 5%</li>
-      </ul>
-    </div>
-    <a href="#" class="btn">Записаться</a>
-  </div>
-  <div class="card">
-    <h3>Полная клиника — Стандарт</h3>
-    <div class="price">14 900 ₽/мес</div>
-    <div class="description">2 ТО, 4 экспресс-мойки, 1 шиномонтаж, скидка 10%</div>
-    <a class="btn" onclick="toggleDetails(this)">Подробнее</a>
-    <div class="details">
-      <ul>
-        <li>2 ТО/мес</li>
-        <li>4 экспресс-мойки/мес</li>
-        <li>1 шиномонтаж + проверка давления и балансировка</li>
-        <li>Скидка на запчасти 10%</li>
-      </ul>
-    </div>
-    <a href="#" class="btn">Записаться</a>
-  </div>
+  <div class="card"><h3>Полная клиника — Базовый</h3><div class="price">9 900 ₽/мес</div><div class="description">1 ТО, 2 экспресс-мойки, 1 шиномонтаж, скидка 5%</div><a class="btn" onclick="toggleDetails(this)">Подробнее</a><div class="details"><ul><li>1 ТО/мес: диагностика, замена масла, проверка тормозов</li><li>2 экспресс-мойки/мес</li><li>1 шиномонтаж/сезон</li><li>Скидка на запчасти 5%</li></ul></div><a href="#" class="btn">Записаться</a></div>
+  <div class="card"><h3>Полная клиника — Стандарт</h3><div class="price">14 900 ₽/мес</div><div class="description">2 ТО, 4 экспресс-мойки, 1 шиномонтаж, скидка 10%</div><a class="btn" onclick="toggleDetails(this)">Подробнее</a><div class="details"><ul><li>2 ТО/мес</li><li>4 экспресс-мойки/мес</li><li>1 шиномонтаж + проверка давления</li><li>Скидка на запчасти 10%</li></ul></div><a href="#" class="btn">Записаться</a></div>
 </div>
 
 <!-- Акция -->
-<div class="promo">
-🎉 Первые 100 клиентов получают карточку «Основатель сервиса» с персональной скидкой + бесплатную диагностику!
-</div>
+<div class="promo">🎉 Первые 100 клиентов получают карточку «Основатель сервиса» с персональной скидкой + бесплатную диагностику!</div>
 
 <!-- Статистика -->
 <div class="stats">
-  <div class="stat"><h3>500+</h3><p>Довольных автомобилей</p></div>
+  <div class="stat"><h3>500+</h3><p>Довольных авто</p></div>
   <div class="stat"><h3>10</h3><p>Лет опыта</p></div>
   <div class="stat"><h3>24/7</h3><p>График работы</p></div>
 </div>
 
 <!-- О нас -->
-<div class="about">
-  <h2>О нас</h2>
-  <p>Drive Med — современный автосервис, мойка и шиномонтаж в одном месте. Мы работаем честно и дружелюбно, используем качественные материалы и современное оборудование. Наши специалисты всегда готовы поддержать вашу машину в отличном состоянии.</p>
-</div>
+<div class="about"><h2>О нас</h2><p>Drive Med — современный автосервис, мойка и шиномонтаж в одном месте. Честно, дружелюбно, качественно. Мы поддержим вашу машину в отличном состоянии.</p></div>
 
 <!-- Отзывы -->
 <div class="reviews">
@@ -305,35 +94,27 @@
 
 </main>
 
-<footer>
-  Drive Med &copy; 2025 — честный сервис для машин в Москве и Красногорске | 24/7
-</footer>
+<footer>Drive Med &copy; 2025 — честный сервис для машин | 24/7</footer>
 
 <script>
 function toggleDetails(btn){
-  const details = btn.nextElementSibling;
-  if(details.style.display === "block"){
-    details.style.display = "none";
-    btn.textContent = "Подробнее";
-  } else {
-    details.style.display = "block";
-    btn.textContent = "Скрыть";
-  }
+  const details=btn.nextElementSibling;
+  if(details.style.display==="block"){details.style.display="none";btn.textContent="Подробнее";}
+  else{details.style.display="block";btn.textContent="Скрыть";}
 }
-
-// Анимация появления элементов при скролле
-const faders = document.querySelectorAll('.feature, .card, .promo, .about, .review, .stat');
-const appearOptions = {threshold: 0.1, rootMargin: "0px 0px -50px 0px"};
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+// Анимация при скролле
+const faders=document.querySelectorAll('.feature,.card,.promo,.about,.review,.stat');
+const appearOnScroll=new IntersectionObserver(function(entries,observer){
   entries.forEach(entry=>{
     if(!entry.isIntersecting) return;
-    entry.target.style.opacity = 1;
-    entry.target.style.transform = "translateY(0)";
-    appearOnScroll.unobserve(entry.target);
+    entry.target.style.opacity=1;
+    entry.target.style.transform="translateY(0)";
+    observer.unobserve(entry.target);
   });
-}, appearOptions);
+},{threshold:0.1});
 faders.forEach(fader=>appearOnScroll.observe(fader));
 </script>
 
 </body>
 </html>
+
