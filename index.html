@@ -2,169 +2,198 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Drive Med — больница для машин</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive Med — клиника для машин</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --blue:#0a6cff;
-  --dark:#0f172a;
-  --gray:#64748b;
-  --bg:#f8fafc;
-  --accent:#22c55e;
+  --blue:#0b5ed7;
+  --light:#f4f7fb;
+  --dark:#1c1f26;
+  --accent:#00c2ff;
+  --card:#ffffff;
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:var(--bg);
+  background:var(--light);
   color:var(--dark);
 }
+h1,h2,h3{margin:0}
+button{cursor:pointer;border:none}
 
-/* АКЦИЯ */
+header{
+  background:linear-gradient(135deg,#0b5ed7,#00c2ff);
+  color:white;
+  padding:30px 20px 90px;
+  position:relative;
+}
 .top-banner{
-  background:linear-gradient(90deg,#ff7a18,#ffb347);
+  background:#ffb703;
   color:#000;
   text-align:center;
-  padding:12px;
+  padding:10px;
   font-weight:600;
 }
-
-/* HERO */
-header{
-  padding:120px 20px 80px;
-  background:linear-gradient(135deg,#0a6cff,#0ea5e9);
-  color:white;
+.hero{
+  max-width:1200px;
+  margin:auto;
   text-align:center;
 }
-header h1{
-  font-size:52px;
-  margin:0;
+.hero h1{
+  font-size:3em;
+  margin-top:40px;
 }
-header p{
-  font-size:20px;
-  max-width:720px;
-  margin:20px auto 0;
+.hero p{
+  font-size:1.2em;
   opacity:.95;
 }
 
-/* КНОПКИ */
-.btn{
-  display:inline-block;
-  background:var(--blue);
-  color:white;
-  padding:14px 26px;
-  border-radius:10px;
-  font-weight:600;
-  margin-top:30px;
-  transition:.25s;
-}
-.btn:hover{transform:translateY(-2px);background:#084fc7}
-
-/* СЕКЦИИ */
-section{
-  padding:90px 20px;
+.section{
   max-width:1200px;
-  margin:auto;
+  margin:80px auto;
+  padding:0 20px;
 }
-h2{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:20px;
-}
-.sub{
-  text-align:center;
-  color:var(--gray);
-  max-width:700px;
-  margin:0 auto 60px;
-}
-
-/* ПРЕИМУЩЕСТВА */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-.card{
-  background:white;
-  padding:30px;
-  border-radius:18px;
-  box-shadow:0 20px 40px rgba(0,0,0,.05);
-  transition:.3s;
-}
-.card:hover{transform:translateY(-6px)}
-.card i{
-  font-size:32px;
-  color:var(--blue);
-  margin-bottom:15px;
-}
-
-/* РОЗНИЦА */
-.price-row{
-  display:flex;
-  justify-content:space-between;
-  padding:14px 0;
-  border-bottom:1px dashed #e5e7eb;
-}
-.price-row span:last-child{font-weight:600}
-
-/* ПОДПИСКИ */
-.filter{
+.section h2{
+  font-size:2.2em;
   text-align:center;
   margin-bottom:40px;
 }
-.filter button{
-  border:none;
-  background:#e5e7eb;
-  padding:10px 18px;
-  border-radius:999px;
-  margin:5px;
-  font-weight:600;
-  cursor:pointer;
+
+/* ---------- ПРОВЕРКА МЕДКАРТЫ ---------- */
+.check-card{
+  background:var(--card);
+  border-radius:18px;
+  padding:40px;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+  text-align:center;
 }
-.filter button.active{
+.check-card input{
+  padding:14px;
+  width:260px;
+  font-size:1em;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+.check-card button{
   background:var(--blue);
   color:white;
+  padding:14px 25px;
+  border-radius:10px;
+  margin-left:10px;
+  font-size:1em;
 }
+
+/* ---------- ПОДПИСКИ ---------- */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:30px;
+}
+.tab{
+  padding:12px 22px;
+  background:white;
+  border-radius:30px;
+  font-weight:600;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.tab.active{background:var(--blue);color:white}
 
 .subscriptions{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  gap:25px;
 }
-
 .sub-card{
   background:white;
-  padding:35px;
-  border-radius:22px;
-  box-shadow:0 25px 60px rgba(0,0,0,.08);
-  display:none;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+  transition:.3s;
 }
-.sub-card h3{margin-top:0}
-.price{
-  font-size:34px;
-  font-weight:800;
-  margin:10px 0;
-}
-.badge{
-  display:inline-block;
-  background:#dcfce7;
-  color:#166534;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:13px;
-  margin-bottom:10px;
+.sub-card:hover{transform:translateY(-8px)}
+.sub-card h3{color:var(--blue)}
+.price{font-size:1.8em;font-weight:700;margin:15px 0}
+.sub-card ul{padding-left:18px}
+.sub-card li{margin-bottom:8px}
+.sub-card button{
+  width:100%;
+  background:var(--blue);
+  color:white;
+  padding:14px;
+  border-radius:10px;
+  margin-top:15px;
+  font-size:1em;
 }
 
-/* FOOTER */
+/* ---------- МЕДКАРТА ---------- */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.card-modal{
+  background:white;
+  width:90%;
+  max-width:800px;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-weight:800;
+  color:var(--blue);
+  font-size:1.2em;
+}
+.patient{
+  font-size:1.6em;
+  font-weight:700;
+  margin:20px 0;
+}
+.block{
+  background:var(--light);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:15px;
+}
+.block h4{margin-bottom:10px;color:var(--blue)}
+.recommendation{
+  background:#eaf4ff;
+  border-left:6px solid var(--blue);
+}
+
+/* ---------- РОЗНИЦА ---------- */
+.retail{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.retail div{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+/* ---------- ФУТЕР ---------- */
 footer{
-  background:#020617;
-  color:#94a3b8;
-  padding:60px 20px;
+  background:#0b5ed7;
+  color:white;
+  padding:40px 20px;
   text-align:center;
 }
 </style>
@@ -173,120 +202,133 @@ footer{
 <body>
 
 <div class="top-banner">
-🎉 Первые 100 клиентов — статус «Основатель Drive Med», пожизненная скидка и бесплатная диагностика
+🎉 Первые 100 клиентов получают статус «Пациент №1» + пожизненную скидку
 </div>
 
 <header>
-  <h1>Drive Med</h1>
-  <p>
-    Больница для машин.  
-    Честный автосервис, мойка и шиномонтаж 24/7 в Москве и Красногорске.
-  </p>
-  <a class="btn">Записаться на приём</a>
+  <div class="hero">
+    <h1>Drive Med</h1>
+    <p>Клиника для машин. Диагностируем, лечим и ведём историю автомобиля.</p>
+  </div>
 </header>
 
-<section>
-<h2>Почему мы — не обычный автосервис</h2>
-<p class="sub">
-Мы не «чинят всё подряд». Мы ведём автомобиль как пациента — с историей, рекомендациями и заботой о бюджете.
-</p>
-
-<div class="grid">
-  <div class="card"><i class="fa-solid fa-heart-pulse"></i><h3>Честная диагностика</h3><p>Если можно не делать — мы так и скажем.</p></div>
-  <div class="card"><i class="fa-solid fa-video"></i><h3>Онлайн-камеры</h3><p>Смотрите, как моют и чинят вашу машину в реальном времени.</p></div>
-  <div class="card"><i class="fa-solid fa-file-medical"></i><h3>Медкарта авто</h3><p>История работ и рекомендации по VIN и номеру.</p></div>
-</div>
+<!-- ПРОВЕРКА МЕДКАРТЫ -->
+<section class="section">
+  <div class="check-card">
+    <h2>Проверьте медкарту автомобиля</h2>
+    <p>Введите номер — увидите историю обслуживания и рекомендации</p>
+    <input id="plateInput" placeholder="В799УХ790">
+    <button onclick="checkPlate()">Проверить</button>
+  </div>
 </section>
 
-<section>
-<h2>Розничные цены (без подписки)</h2>
-<p class="sub">Честно показываем, сколько стоит сервис без обязательств</p>
-
-<div class="card">
-  <div class="price-row"><span>Экспресс-мойка</span><span>700 ₽</span></div>
-  <div class="price-row"><span>Комплексная мойка</span><span>1 600 ₽</span></div>
-  <div class="price-row"><span>Диагностика</span><span>2 000 ₽</span></div>
-  <div class="price-row"><span>Шиномонтаж R16–18</span><span>3 500 ₽</span></div>
-</div>
-</section>
-
-<section>
-<h2>Почему подписка выгоднее</h2>
-<p class="sub">
-Подписка — это не «навязывание».  
-Это забота, планирование и экономия до 30–40% в год.
-</p>
-
-<div class="grid">
-  <div class="card"><h3>💸 Экономия</h3><p>Цена ниже розницы.</p></div>
-  <div class="card"><h3>🧠 План</h3><p>Мы заранее подсказываем, что делать и когда.</p></div>
-  <div class="card"><h3>🤝 Доверие</h3><p>Нам выгодно, чтобы машина была в порядке.</p></div>
-</div>
-</section>
-
-<section>
+<!-- ПОДПИСКИ -->
+<section class="section">
 <h2>Подписки Drive Med</h2>
-<p class="sub">Выберите направление и уровень обслуживания</p>
 
-<div class="filter">
-  <button class="active" onclick="filterSubs('wash')">Мойка</button>
-  <button onclick="filterSubs('service')">Сервис</button>
-  <button onclick="filterSubs('tires')">Шиномонтаж</button>
+<div class="tabs">
+  <div class="tab active" onclick="showSubs('combo')">Комбо</div>
+  <div class="tab" onclick="showSubs('wash')">Мойка</div>
+  <div class="tab" onclick="showSubs('service')">Сервис</div>
+  <div class="tab" onclick="showSubs('tire')">Шиномонтаж</div>
 </div>
 
-<div class="subscriptions">
-
-<!-- МОЙКА -->
-<div class="sub-card wash">
-  <span class="badge">Базовая</span>
-  <h3>Чисто</h3>
-  <div class="price">2 900 ₽/мес</div>
-  <p>4 экспресс-мойки. Цена одной — 725 ₽.</p>
-</div>
-
-<div class="sub-card wash">
-  <span class="badge">Комфорт</span>
-  <h3>Всегда чисто</h3>
-  <div class="price">4 900 ₽/мес</div>
-  <p>6 моек + 1 комплекс.</p>
-</div>
-
-<div class="sub-card wash">
-  <span class="badge">VIP</span>
-  <h3>Премиум</h3>
-  <div class="price">7 900 ₽/мес</div>
-  <p>8 моек, приоритет, персональный мастер.</p>
-</div>
-
-</div>
+<div class="subscriptions" id="subs"></div>
 </section>
 
-<section>
-<h2>Что будет дальше</h2>
-<p class="sub">
-Мы строим сервис нового поколения.
-</p>
-
-<div class="grid">
-  <div class="card"><h3>Онлайн-запись</h3><p>Как в поликлинике — без звонков.</p></div>
-  <div class="card"><h3>Личная медкарта</h3><p>История, рекомендации, напоминания.</p></div>
-  <div class="card"><h3>Прозрачность</h3><p>Камеры, отчёты, фото работ.</p></div>
+<!-- РОЗНИЦА -->
+<section class="section">
+<h2>Цены без подписки</h2>
+<div class="retail">
+  <div>Комплексная мойка — <b>2 500 ₽</b></div>
+  <div>Диагностика — <b>2 000 ₽</b></div>
+  <div>Шиномонтаж — <b>4 500 ₽</b></div>
 </div>
+<p style="text-align:center;margin-top:20px;">
+Подписка экономит до <b>40%</b> и включает приоритет, историю и рекомендации.
+</p>
 </section>
 
 <footer>
-Drive Med © 2025  
-<br>Москва · Красногорск · 24/7
+Drive Med • Москва / Красногорск • 24/7  
 </footer>
 
+<!-- МЕДКАРТА -->
+<div class="modal" id="modal">
+  <div class="card-modal">
+    <div class="card-header">
+      <div class="logo">Drive Med</div>
+      <button onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="patient">Ford Focus • 2008</div>
+
+    <div class="block">
+      <h4>Первичный приём</h4>
+      Жалоба: посторонний стук в двигателе
+    </div>
+
+    <div class="block">
+      <h4>Заключение осмотра</h4>
+      Обнаружен повышенный износ поршневой группы, критических повреждений не выявлено.
+    </div>
+
+    <div class="block recommendation">
+      <h4>Рекомендации</h4>
+      • Замена тормозных колодок через ~1 500 км  
+      • Контроль уровня масла каждые 1 000 км  
+      • Повторная диагностика через 3 месяца
+    </div>
+  </div>
+</div>
+
 <script>
-function filterSubs(type){
-  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-  document.querySelectorAll('.sub-card').forEach(c=>c.style.display='none');
-  document.querySelectorAll('.'+type).forEach(c=>c.style.display='block');
+const data = {
+ combo:[
+  {name:"Комбо Мини",price:"8 900 ₽",list:["Диагностика","2 мойки","Приоритет"]},
+  {name:"Комбо База",price:"14 900 ₽",list:["ТО","4 мойки","Шиномонтаж","Медкарта"]},
+  {name:"Комбо VIP",price:"24 900 ₽",list:["Все услуги","Без очереди","Личный мастер"]}
+ ],
+ wash:[
+  {name:"Мойка Мини",price:"3 900 ₽",list:["4 экспресс-мойки"]},
+  {name:"Мойка База",price:"6 900 ₽",list:["8 моек","Химия+"]},
+  {name:"Мойка VIP",price:"10 900 ₽",list:["Безлимит","Приоритет"]}
+ ],
+ service:[
+  {name:"Сервис Мини",price:"5 900 ₽",list:["Диагностика","Рекомендации"]},
+  {name:"Сервис База",price:"9 900 ₽",list:["ТО","История"]},
+  {name:"Сервис VIP",price:"19 900 ₽",list:["Полное ведение авто"]}
+ ],
+ tire:[
+  {name:"Шины Мини",price:"4 900 ₽",list:["1 шиномонтаж"]},
+  {name:"Шины База",price:"7 900 ₽",list:["2 шиномонтажа"]},
+  {name:"Шины VIP",price:"12 900 ₽",list:["Приоритет","Контроль"]}
+ ]
+};
+
+function showSubs(type){
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ event.target.classList.add('active');
+ const box=document.getElementById('subs');
+ box.innerHTML='';
+ data[type].forEach(s=>{
+  box.innerHTML+=`
+  <div class="sub-card">
+    <h3>${s.name}</h3>
+    <div class="price">${s.price}</div>
+    <ul>${s.list.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <button>Записаться</button>
+  </div>`;
+ });
 }
-filterSubs('wash');
+showSubs('combo');
+
+function checkPlate(){
+ const v=document.getElementById('plateInput').value.trim().toUpperCase();
+ if(v==="В799УХ790"){document.getElementById('modal').style.display='flex'}
+ else{alert("Вы ещё не в базе. Давайте это исправим — запишитесь на приём.")}
+}
+function closeModal(){document.getElementById('modal').style.display='none'}
 </script>
 
 </body>
