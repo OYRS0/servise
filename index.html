@@ -2,116 +2,133 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drive Med — больница для машин</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Inter',sans-serif;
-  background:#f6f8fb;
-  color:#1c1c1c;
-  line-height:1.5;
+:root{
+  --blue:#0a6cff;
+  --dark:#0f172a;
+  --gray:#64748b;
+  --bg:#f8fafc;
+  --accent:#22c55e;
 }
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:auto;padding:0 20px}
 
-/* ===== АКЦИЯ ===== */
-.top-promo{
-  background:linear-gradient(90deg,#ff6a00,#ff9a00);
-  color:#fff;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+/* АКЦИЯ */
+.top-banner{
+  background:linear-gradient(90deg,#ff7a18,#ffb347);
+  color:#000;
   text-align:center;
   padding:12px;
   font-weight:600;
 }
 
-/* ===== HERO ===== */
-.hero{
-  background:radial-gradient(circle at top,#0b5ed7,#043d8b);
-  color:#fff;
-  padding:120px 0 100px;
-  position:relative;
-  overflow:hidden;
-}
-.hero h1{
-  font-size:56px;
-  font-weight:800;
-  max-width:700px;
-}
-.hero p{
-  font-size:20px;
-  max-width:600px;
-  margin:20px 0 40px;
-  opacity:.9;
-}
-.hero .cta{
-  display:inline-block;
-  background:#fff;
-  color:#043d8b;
-  padding:16px 28px;
-  border-radius:12px;
-  font-weight:700;
-  transition:.3s;
-}
-.hero .cta:hover{transform:scale(1.05)}
-
-/* ===== БЛОКИ ===== */
-section{padding:100px 0}
-h2{
-  font-size:40px;
-  margin-bottom:40px;
+/* HERO */
+header{
+  padding:120px 20px 80px;
+  background:linear-gradient(135deg,#0a6cff,#0ea5e9);
+  color:white;
   text-align:center;
 }
+header h1{
+  font-size:52px;
+  margin:0;
+}
+header p{
+  font-size:20px;
+  max-width:720px;
+  margin:20px auto 0;
+  opacity:.95;
+}
 
-/* ===== ПРЕИМУЩЕСТВА ===== */
+/* КНОПКИ */
+.btn{
+  display:inline-block;
+  background:var(--blue);
+  color:white;
+  padding:14px 26px;
+  border-radius:10px;
+  font-weight:600;
+  margin-top:30px;
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);background:#084fc7}
+
+/* СЕКЦИИ */
+section{
+  padding:90px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+h2{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:20px;
+}
+.sub{
+  text-align:center;
+  color:var(--gray);
+  max-width:700px;
+  margin:0 auto 60px;
+}
+
+/* ПРЕИМУЩЕСТВА */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 .card{
-  background:#fff;
-  border-radius:20px;
+  background:white;
   padding:30px;
-  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.05);
   transition:.3s;
 }
-.card:hover{transform:translateY(-10px)}
-.card h3{margin-bottom:12px}
-
-/* ===== ЦЕНЫ БЕЗ ПОДПИСКИ ===== */
-.price-table{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.price{
+.card:hover{transform:translateY(-6px)}
+.card i{
   font-size:32px;
-  font-weight:800;
-  color:#0b5ed7;
+  color:var(--blue);
+  margin-bottom:15px;
 }
 
-/* ===== ПОДПИСКИ ===== */
-.sub-controls{
+/* РОЗНИЦА */
+.price-row{
   display:flex;
-  justify-content:center;
-  gap:15px;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px dashed #e5e7eb;
+}
+.price-row span:last-child{font-weight:600}
+
+/* ПОДПИСКИ */
+.filter{
+  text-align:center;
   margin-bottom:40px;
-  flex-wrap:wrap;
 }
-.sub-controls button{
-  padding:14px 24px;
-  border-radius:999px;
+.filter button{
   border:none;
-  background:#e9eef5;
-  cursor:pointer;
+  background:#e5e7eb;
+  padding:10px 18px;
+  border-radius:999px;
+  margin:5px;
   font-weight:600;
+  cursor:pointer;
 }
-.sub-controls button.active{
-  background:#0b5ed7;
-  color:#fff;
+.filter button.active{
+  background:var(--blue);
+  color:white;
 }
 
 .subscriptions{
@@ -120,39 +137,34 @@ h2{
   gap:30px;
 }
 
-.sub{
-  background:#fff;
-  border-radius:24px;
+.sub-card{
+  background:white;
   padding:35px;
-  box-shadow:0 25px 50px rgba(0,0,0,.1);
+  border-radius:22px;
+  box-shadow:0 25px 60px rgba(0,0,0,.08);
+  display:none;
 }
-.sub.vip{border:3px solid gold}
-.sub h3{font-size:24px}
-.sub ul{margin:20px 0}
-.sub ul li{margin-bottom:8px}
-.sub .price{margin-bottom:10px}
-.sub .btn{
-  display:block;
-  text-align:center;
-  background:#0b5ed7;
-  color:#fff;
-  padding:14px;
-  border-radius:10px;
-  font-weight:700;
+.sub-card h3{margin-top:0}
+.price{
+  font-size:34px;
+  font-weight:800;
+  margin:10px 0;
+}
+.badge{
+  display:inline-block;
+  background:#dcfce7;
+  color:#166534;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  margin-bottom:10px;
 }
 
-/* ===== УНИЖАЕМ КОНКУРЕНТОВ ===== */
-.kill{
-  background:#0b5ed7;
-  color:#fff;
-}
-.kill .card{background:rgba(255,255,255,.1);color:#fff}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
-  background:#0a0a0a;
-  color:#aaa;
-  padding:50px 0;
+  background:#020617;
+  color:#94a3b8;
+  padding:60px 20px;
   text-align:center;
 }
 </style>
@@ -160,157 +172,121 @@ footer{
 
 <body>
 
-<div class="top-promo">
-🔥 Первые 100 клиентов получают статус «Основатель Drive Med» — пожизненные бонусы и приоритет
+<div class="top-banner">
+🎉 Первые 100 клиентов — статус «Основатель Drive Med», пожизненная скидка и бесплатная диагностика
 </div>
 
-<section class="hero">
-  <div class="container">
-    <h1>Drive Med — больница для машин</h1>
-    <p>
-      Честный автосервис, мойка и шиномонтаж 24/7.  
-      Без разводов, без навязываний, с человеческим подходом.
-    </p>
-    <a href="#subs" class="cta">Посмотреть подписки</a>
-  </div>
+<header>
+  <h1>Drive Med</h1>
+  <p>
+    Больница для машин.  
+    Честный автосервис, мойка и шиномонтаж 24/7 в Москве и Красногорске.
+  </p>
+  <a class="btn">Записаться на приём</a>
+</header>
+
+<section>
+<h2>Почему мы — не обычный автосервис</h2>
+<p class="sub">
+Мы не «чинят всё подряд». Мы ведём автомобиль как пациента — с историей, рекомендациями и заботой о бюджете.
+</p>
+
+<div class="grid">
+  <div class="card"><i class="fa-solid fa-heart-pulse"></i><h3>Честная диагностика</h3><p>Если можно не делать — мы так и скажем.</p></div>
+  <div class="card"><i class="fa-solid fa-video"></i><h3>Онлайн-камеры</h3><p>Смотрите, как моют и чинят вашу машину в реальном времени.</p></div>
+  <div class="card"><i class="fa-solid fa-file-medical"></i><h3>Медкарта авто</h3><p>История работ и рекомендации по VIN и номеру.</p></div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2>Почему к нам переходят от других</h2>
-    <div class="grid">
-      <div class="card"><h3>Без развода</h3><p>Никаких «у вас срочно всё плохо». Только факты.</p></div>
-      <div class="card"><h3>24/7</h3><p>Работаем, когда удобно вам, а не «до 19:00».</p></div>
-      <div class="card"><h3>Подписки</h3><p>Вы платите меньше и знаете цену заранее.</p></div>
-      <div class="card"><h3>Один комплекс</h3><p>Сервис, мойка, шиномонтаж — всё в одном месте.</p></div>
-    </div>
-  </div>
+<h2>Розничные цены (без подписки)</h2>
+<p class="sub">Честно показываем, сколько стоит сервис без обязательств</p>
+
+<div class="card">
+  <div class="price-row"><span>Экспресс-мойка</span><span>700 ₽</span></div>
+  <div class="price-row"><span>Комплексная мойка</span><span>1 600 ₽</span></div>
+  <div class="price-row"><span>Диагностика</span><span>2 000 ₽</span></div>
+  <div class="price-row"><span>Шиномонтаж R16–18</span><span>3 500 ₽</span></div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2>Цены без подписки</h2>
-    <div class="price-table">
-      <div class="card"><h3>Экспресс-мойка</h3><div class="price">1 200 ₽</div></div>
-      <div class="card"><h3>Комплексная мойка</h3><div class="price">2 500 ₽</div></div>
-      <div class="card"><h3>ТО базовое</h3><div class="price">6 000 ₽</div></div>
-      <div class="card"><h3>Шиномонтаж R16</h3><div class="price">3 500 ₽</div></div>
-    </div>
-  </div>
+<h2>Почему подписка выгоднее</h2>
+<p class="sub">
+Подписка — это не «навязывание».  
+Это забота, планирование и экономия до 30–40% в год.
+</p>
+
+<div class="grid">
+  <div class="card"><h3>💸 Экономия</h3><p>Цена ниже розницы.</p></div>
+  <div class="card"><h3>🧠 План</h3><p>Мы заранее подсказываем, что делать и когда.</p></div>
+  <div class="card"><h3>🤝 Доверие</h3><p>Нам выгодно, чтобы машина была в порядке.</p></div>
+</div>
 </section>
 
-<section id="subs">
-  <div class="container">
-    <h2>Подписки Drive Med</h2>
+<section>
+<h2>Подписки Drive Med</h2>
+<p class="sub">Выберите направление и уровень обслуживания</p>
 
-    <div class="sub-controls">
-      <button class="active" onclick="filterSubs('service')">Сервис</button>
-      <button onclick="filterSubs('wash')">Мойка</button>
-      <button onclick="filterSubs('tires')">Шиномонтаж</button>
-    </div>
+<div class="filter">
+  <button class="active" onclick="filterSubs('wash')">Мойка</button>
+  <button onclick="filterSubs('service')">Сервис</button>
+  <button onclick="filterSubs('tires')">Шиномонтаж</button>
+</div>
 
-    <div class="subscriptions">
+<div class="subscriptions">
 
-      <!-- СЕРВИС -->
-      <div class="sub service">
-        <h3>Сервис — База</h3>
-        <div class="price">7 900 ₽ / мес</div>
-        <ul>
-          <li>Диагностика</li>
-          <li>1 ТО в месяц</li>
-          <li>Скидка 5% на запчасти</li>
-        </ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
+<!-- МОЙКА -->
+<div class="sub-card wash">
+  <span class="badge">Базовая</span>
+  <h3>Чисто</h3>
+  <div class="price">2 900 ₽/мес</div>
+  <p>4 экспресс-мойки. Цена одной — 725 ₽.</p>
+</div>
 
-      <div class="sub service">
-        <h3>Сервис — Комфорт</h3>
-        <div class="price">12 900 ₽ / мес</div>
-        <ul>
-          <li>2 ТО</li>
-          <li>Экспресс-мойка</li>
-          <li>Скидка 10%</li>
-        </ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
+<div class="sub-card wash">
+  <span class="badge">Комфорт</span>
+  <h3>Всегда чисто</h3>
+  <div class="price">4 900 ₽/мес</div>
+  <p>6 моек + 1 комплекс.</p>
+</div>
 
-      <div class="sub service vip">
-        <h3>Сервис — VIP</h3>
-        <div class="price">19 900 ₽ / мес</div>
-        <ul>
-          <li>Безлимит диагностики</li>
-          <li>Приоритет</li>
-          <li>Скидка 20%</li>
-        </ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
+<div class="sub-card wash">
+  <span class="badge">VIP</span>
+  <h3>Премиум</h3>
+  <div class="price">7 900 ₽/мес</div>
+  <p>8 моек, приоритет, персональный мастер.</p>
+</div>
 
-      <!-- МОЙКА -->
-      <div class="sub wash">
-        <h3>Мойка — База</h3>
-        <div class="price">4 900 ₽</div>
-        <ul><li>4 экспресс-мойки</li></ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
-
-      <div class="sub wash">
-        <h3>Мойка — Комфорт</h3>
-        <div class="price">7 900 ₽</div>
-        <ul><li>8 моек</li><li>Чернение резины</li></ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
-
-      <div class="sub wash vip">
-        <h3>Мойка — VIP</h3>
-        <div class="price">12 900 ₽</div>
-        <ul><li>Безлимит экспресс</li><li>Приоритет</li></ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
-
-      <!-- ШИНЫ -->
-      <div class="sub tires">
-        <h3>Шины — База</h3>
-        <div class="price">3 900 ₽</div>
-        <ul><li>1 шиномонтаж</li></ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
-
-      <div class="sub tires vip">
-        <h3>Шины — VIP</h3>
-        <div class="price">6 900 ₽</div>
-        <ul><li>2 шиномонтажа</li><li>Приоритет</li></ul>
-        <a class="btn">Оставить заявку</a>
-      </div>
-
-    </div>
-  </div>
+</div>
 </section>
 
-<section class="kill">
-  <div class="container">
-    <h2>Почему подписка выгоднее</h2>
-    <div class="grid">
-      <div class="card">У конкурентов — платишь каждый раз</div>
-      <div class="card">У нас — фикс и спокойствие</div>
-      <div class="card">У них — «вдруг нашли поломку»</div>
-      <div class="card">У нас — только по факту</div>
-    </div>
-  </div>
+<section>
+<h2>Что будет дальше</h2>
+<p class="sub">
+Мы строим сервис нового поколения.
+</p>
+
+<div class="grid">
+  <div class="card"><h3>Онлайн-запись</h3><p>Как в поликлинике — без звонков.</p></div>
+  <div class="card"><h3>Личная медкарта</h3><p>История, рекомендации, напоминания.</p></div>
+  <div class="card"><h3>Прозрачность</h3><p>Камеры, отчёты, фото работ.</p></div>
+</div>
 </section>
 
 <footer>
-  Drive Med © 2025 · Москва / Красногорск · 24/7
+Drive Med © 2025  
+<br>Москва · Красногорск · 24/7
 </footer>
 
 <script>
 function filterSubs(type){
-  document.querySelectorAll('.sub').forEach(s=>{
-    s.style.display=s.classList.contains(type)?'block':'none'
-  })
-  document.querySelectorAll('.sub-controls button').forEach(b=>b.classList.remove('active'))
-  event.target.classList.add('active')
+  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.sub-card').forEach(c=>c.style.display='none');
+  document.querySelectorAll('.'+type).forEach(c=>c.style.display='block');
 }
-filterSubs('service')
+filterSubs('wash');
 </script>
 
 </body>
